@@ -1,3 +1,2 @@
 require "rspec"
-require_relative '../lib/prime'
-require_relative '../lib/multiplication_table'
+%w(prime multiplicator display).each{|f| require_relative "../lib/#{f}"}

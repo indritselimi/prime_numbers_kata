@@ -1,11 +1,13 @@
 #!/usr/bin/env ruby
 
 $LOAD_PATH << 'lib'
-require_relative 'lib/prime'
-require_relative 'lib/multiplication_table'
+
+%w(prime multiplicator display).each{|f| require_relative "lib/#{f}"}
 
 module PrimeNumbersKata
+  number_of_primes = ARGV.empty? ? 10 : ARGV.shift.to_i
 
-  STDOUT << MultiplicationTable.new(Prime.first(10)).display
+  console = Display.new(STDOUT)
 
+  Multiplicator.new(Prime.first(number_of_primes)).generate.show_on(console)
 end

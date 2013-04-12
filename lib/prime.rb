@@ -6,7 +6,7 @@ module PrimeNumbersKata
       end
 
       def prime?(n)
-        n >= 2 && prime_factors(n).size < 2
+        prime_factors(n).size == 1
       end
 
       def prime_factors(n)
