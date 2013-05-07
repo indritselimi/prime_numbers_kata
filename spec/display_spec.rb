@@ -3,9 +3,7 @@ require 'spec_helper'
 module PrimeNumbersKata
   describe Display do
     let(:board) {
-      s_io = StringIO.new
-      (class << s_io;self end).send(:alias_method, :content, :string)
-      s_io
+      (class << (s_io = StringIO.new);self end).send(:alias_method, :content, :string);s_io
     }
     let(:display) { Display.new(board) }
 
